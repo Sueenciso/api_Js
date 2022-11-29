@@ -1,4 +1,4 @@
-const {Router}=require("express");
+const { Router } = require("express");
 const routes = Router();
 
 const users = [
@@ -23,4 +23,4 @@ routes.get("/users/:userid", (req, res) => {
   }
 });
 
-module.exports=routes;
+module.exports = routes;

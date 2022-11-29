@@ -1,4 +1,4 @@
-const {Router}=require("express");
+const { Router } = require("express");
 const routes = Router();
 
 const product = [
@@ -23,4 +23,4 @@ routes.get("/products/:productsid", (req, res) => {
   }
 });
 
-module.exports=routes;
+module.exports = routes;
