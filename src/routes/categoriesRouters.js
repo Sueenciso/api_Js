@@ -3,15 +3,15 @@ const routes = Router();
 
 const categories = [
   { id: 1, categorie: "confiteria", status: "old", contry: "USA" },
-  { id: 2, categorie: "grocery", status: "new", contry: "" },
+  { id: 2, categorie: "grocery", status: "new", contry: "URS" },
   { id: 3, categorie: "Jelly", status: "seg", contry: "MX" },
 ];
 
-routes.get("/categories", (req, res) => {
+routes.get("/", (req, res) => {
   res.json(categories);
 });
 
-routes.get("/categories/:categoriesid", (req, res) => {
+routes.get("/:categoriesid", (req, res) => {
   const data = categories.find((cat) => {
     return cat.id == req.params.categoriesid;
   });
@@ -23,4 +23,4 @@ routes.get("/categories/:categoriesid", (req, res) => {
   }
 });
 
-module.exports = routes;
+module.exports=routes;

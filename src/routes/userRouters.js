@@ -2,16 +2,16 @@ const { Router } = require("express");
 const routes = Router();
 
 const users = [
-  { id: 1, username: "admin", firstname: "Admin", lastname: "System" },
-  { id: 2, username: "staff", firstname: "Staff", lastname: "" },
-  { id: 3, username: "customers", firstname: "John", lastname: "Doe" },
+  { id: 1, username: "admin", firstName: "Admin", lastName: "System" },
+  { id: 2, username: "staff", firstName: "Staff", lastName: "" },
+  { id: 3, username: "customer", firstName: "John", lastName: "Doe" },
 ];
 
-routes.get("/users", (req, res) => {
+routes.get("/", (req, res) => {
   res.json(users);
 });
 
-routes.get("/users/:userid", (req, res) => {
+routes.get("/:userid", (req, res) => {
   const data = users.find((user) => {
     return user.id == req.params.userid;
   });
@@ -19,7 +19,7 @@ routes.get("/users/:userid", (req, res) => {
   if (data) {
     res.json(data);
   } else {
-    res.status(404).json({ message: "ususer not found" });
+    res.status(404).json({ message: "User not found" });
   }
 });
 
