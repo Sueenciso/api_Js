@@ -23,4 +23,20 @@ routes.get("/:categoriesid", (req, res) => {
   }
 });
 
+routes.post("/",(req,res)=>{
+  const data = req.body;
+
+  const {categorie,status,contry}=data;
+  const newCategorie={id: 4,categorie,status,contry};
+  if(!data){
+    res.status(400).json({message: "user data is required"});
+  }else{
+    res.status(201).json({
+      ok:true,
+      message: "categoria añadida exitosamente",
+      payload: newCategorie
+    });
+  }
+});
+
 module.exports=routes;

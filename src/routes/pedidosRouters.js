@@ -23,4 +23,20 @@ routes.get("/:pedidosid", (req, res) => {
   }
 });
 
+routes.post("/",(req,res)=>{
+  const data = req.body;
+
+  const {Description,destino,precioEnvio}=data;
+  const newPedido={id: 4,destino,Description,precioEnvio};
+  if(!data){
+    res.status(400).json({message: "user data is required"});
+  }else{
+    res.status(201).json({
+      ok:true,
+      message: "pedido creado exitosamente",
+      payload: newPedido
+    });
+  }
+});
+
 module.exports = routes;

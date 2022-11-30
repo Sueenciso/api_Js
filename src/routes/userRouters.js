@@ -27,7 +27,7 @@ routes.post("/",(req,res)=>{
   const data = req.body;
 
   const {username,email,password}=data;
-  const newUser={username,email,id:54};
+  const newUser={id: 43,username,password,email};
   if(!data){
     res.status(400).json({message: "user data is required"});
   }else{

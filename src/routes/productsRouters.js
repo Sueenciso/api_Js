@@ -23,4 +23,20 @@ routes.get("/:productsid", (req, res) => {
   }
 });
 
+routes.post("/",(req,res)=>{
+  const data = req.body;
+
+  const {producttype,precio}=data;
+  const newProduct={id: 43,producttype,precio};
+  if(!data){
+    res.status(400).json({message: "user data is required"});
+  }else{
+    res.status(201).json({
+      ok:true,
+      message: "producto dado de alta correctamente",
+      payload: newProduct
+    });
+  }
+});
+
 module.exports = routes;
