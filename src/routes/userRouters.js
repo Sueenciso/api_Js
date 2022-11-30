@@ -23,4 +23,20 @@ routes.get("/:userid", (req, res) => {
   }
 });
 
+routes.post("/",(req,res)=>{
+  const data = req.body;
+
+  const {username,email,password}=data;
+  const newUser={username,email,id:54};
+  if(!data){
+    res.status(400).json({message: "user data is required"});
+  }else{
+    res.status(201).json({
+      ok:true,
+      message: "usuario creado",
+      payload: newUser
+    });
+  }
+});
+
 module.exports = routes;
